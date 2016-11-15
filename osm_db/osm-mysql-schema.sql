@@ -15,22 +15,22 @@
 
 
 --
--- Create schema api06_test
+-- Create schema osm
 --
 
-CREATE DATABASE IF NOT EXISTS api06_test
+CREATE DATABASE IF NOT EXISTS osm
   DEFAULT CHARACTER SET utf8mb4
   DEFAULT COLLATE utf8mb4_general_ci;
-USE api06_test;
+USE osm;
 
 SET foreign_key_checks = 0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
--- Definition of table `api06_test`.`acls`
+-- Definition of table `osm`.`acls`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`acls`;
-CREATE TABLE  `api06_test`.`acls` (
+DROP TABLE IF EXISTS `osm`.`acls`;
+CREATE TABLE  `osm`.`acls` (
   `id` int(11) NOT NULL auto_increment,
   `address` int(10) unsigned NOT NULL,
   `netmask` int(10) unsigned NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE  `api06_test`.`acls` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`acls`
+-- Dumping data for table `osm`.`acls`
 --
 
 /*!40000 ALTER TABLE `acls` DISABLE KEYS */;
@@ -51,11 +51,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`changeset_tags`
+-- Definition of table `osm`.`changeset_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`changeset_tags`;
-CREATE TABLE  `api06_test`.`changeset_tags` (
+DROP TABLE IF EXISTS `osm`.`changeset_tags`;
+CREATE TABLE  `osm`.`changeset_tags` (
   `changeset_id` bigint(64) NOT NULL,
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL default '',
   `v` text NOT NULL default '',
@@ -63,7 +63,7 @@ CREATE TABLE  `api06_test`.`changeset_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`changeset_tags`
+-- Dumping data for table `osm`.`changeset_tags`
 --
 
 /*!40000 ALTER TABLE `changeset_tags` DISABLE KEYS */;
@@ -73,11 +73,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`changesets`
+-- Definition of table `osm`.`changesets`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`changesets`;
-CREATE TABLE  `api06_test`.`changesets` (
+DROP TABLE IF EXISTS `osm`.`changesets`;
+CREATE TABLE  `osm`.`changesets` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL,
   `created_at` datetime NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE  `api06_test`.`changesets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`changesets`
+-- Dumping data for table `osm`.`changesets`
 --
 
 /*!40000 ALTER TABLE `changesets` DISABLE KEYS */;
@@ -101,11 +101,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_node_tags`
+-- Definition of table `osm`.`current_node_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_node_tags`;
-CREATE TABLE  `api06_test`.`current_node_tags` (
+DROP TABLE IF EXISTS `osm`.`current_node_tags`;
+CREATE TABLE  `osm`.`current_node_tags` (
   `node_id` bigint(64) NOT NULL,
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL default '',
   `v` text NOT NULL default '',
@@ -114,7 +114,7 @@ CREATE TABLE  `api06_test`.`current_node_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_node_tags`
+-- Dumping data for table `osm`.`current_node_tags`
 --
 
 /*!40000 ALTER TABLE `current_node_tags` DISABLE KEYS */;
@@ -124,11 +124,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_nodes`
+-- Definition of table `osm`.`current_nodes`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_nodes`;
-CREATE TABLE  `api06_test`.`current_nodes` (
+DROP TABLE IF EXISTS `osm`.`current_nodes`;
+CREATE TABLE  `osm`.`current_nodes` (
   `id` bigint(64) NOT NULL auto_increment,
   `latitude` int(11) NOT NULL,
   `longitude` int(11) NOT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE  `api06_test`.`current_nodes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_nodes`
+-- Dumping data for table `osm`.`current_nodes`
 --
 
 /*!40000 ALTER TABLE `current_nodes` DISABLE KEYS */;
@@ -155,11 +155,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_relation_members`
+-- Definition of table `osm`.`current_relation_members`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_relation_members`;
-CREATE TABLE  `api06_test`.`current_relation_members` (
+DROP TABLE IF EXISTS `osm`.`current_relation_members`;
+CREATE TABLE  `osm`.`current_relation_members` (
   `relation_id` bigint(64) NOT NULL,
   `member_type` enum('Node','Way','Relation') NOT NULL default 'Node',
   `member_id` bigint(11) NOT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE  `api06_test`.`current_relation_members` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_relation_members`
+-- Dumping data for table `osm`.`current_relation_members`
 --
 
 /*!40000 ALTER TABLE `current_relation_members` DISABLE KEYS */;
@@ -181,11 +181,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_relation_tags`
+-- Definition of table `osm`.`current_relation_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_relation_tags`;
-CREATE TABLE  `api06_test`.`current_relation_tags` (
+DROP TABLE IF EXISTS `osm`.`current_relation_tags`;
+CREATE TABLE  `osm`.`current_relation_tags` (
   `id` bigint(64) NOT NULL,
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL default '',
   `v` text NOT NULL default '',
@@ -194,7 +194,7 @@ CREATE TABLE  `api06_test`.`current_relation_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_relation_tags`
+-- Dumping data for table `osm`.`current_relation_tags`
 --
 
 /*!40000 ALTER TABLE `current_relation_tags` DISABLE KEYS */;
@@ -204,11 +204,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_relations`
+-- Definition of table `osm`.`current_relations`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_relations`;
-CREATE TABLE  `api06_test`.`current_relations` (
+DROP TABLE IF EXISTS `osm`.`current_relations`;
+CREATE TABLE  `osm`.`current_relations` (
   `relation_id` bigint(64) NOT NULL auto_increment,
   `changeset_id` bigint(20) NOT NULL,
   `timestamp` datetime NOT NULL,
@@ -221,7 +221,7 @@ CREATE TABLE  `api06_test`.`current_relations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_relations`
+-- Dumping data for table `osm`.`current_relations`
 --
 
 /*!40000 ALTER TABLE `current_relations` DISABLE KEYS */;
@@ -231,11 +231,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_way_nodes`
+-- Definition of table `osm`.`current_way_nodes`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_way_nodes`;
-CREATE TABLE  `api06_test`.`current_way_nodes` (
+DROP TABLE IF EXISTS `osm`.`current_way_nodes`;
+CREATE TABLE  `osm`.`current_way_nodes` (
   `id` bigint(64) NOT NULL,
   `node_id` bigint(64) NOT NULL,
   `sequence_id` bigint(11) NOT NULL,
@@ -246,7 +246,7 @@ CREATE TABLE  `api06_test`.`current_way_nodes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_way_nodes`
+-- Dumping data for table `osm`.`current_way_nodes`
 --
 
 /*!40000 ALTER TABLE `current_way_nodes` DISABLE KEYS */;
@@ -256,11 +256,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_way_tags`
+-- Definition of table `osm`.`current_way_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_way_tags`;
-CREATE TABLE  `api06_test`.`current_way_tags` (
+DROP TABLE IF EXISTS `osm`.`current_way_tags`;
+CREATE TABLE  `osm`.`current_way_tags` (
   `way_id` bigint(64) NOT NULL,
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL default '',
   `v` text NOT NULL default '',
@@ -269,7 +269,7 @@ CREATE TABLE  `api06_test`.`current_way_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_way_tags`
+-- Dumping data for table `osm`.`current_way_tags`
 --
 
 /*!40000 ALTER TABLE `current_way_tags` DISABLE KEYS */;
@@ -279,11 +279,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`current_ways`
+-- Definition of table `osm`.`current_ways`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`current_ways`;
-CREATE TABLE  `api06_test`.`current_ways` (
+DROP TABLE IF EXISTS `osm`.`current_ways`;
+CREATE TABLE  `osm`.`current_ways` (
   `id` bigint(64) NOT NULL auto_increment,
   `changeset_id` bigint(20) NOT NULL,
   `timestamp` datetime NOT NULL,
@@ -296,7 +296,7 @@ CREATE TABLE  `api06_test`.`current_ways` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`current_ways`
+-- Dumping data for table `osm`.`current_ways`
 --
 
 /*!40000 ALTER TABLE `current_ways` DISABLE KEYS */;
@@ -306,11 +306,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`diary_comments`
+-- Definition of table `osm`.`diary_comments`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`diary_comments`;
-CREATE TABLE  `api06_test`.`diary_comments` (
+DROP TABLE IF EXISTS `osm`.`diary_comments`;
+CREATE TABLE  `osm`.`diary_comments` (
   `id` bigint(20) NOT NULL auto_increment,
   `diary_entry_id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
@@ -322,7 +322,7 @@ CREATE TABLE  `api06_test`.`diary_comments` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`diary_comments`
+-- Dumping data for table `osm`.`diary_comments`
 --
 
 /*!40000 ALTER TABLE `diary_comments` DISABLE KEYS */;
@@ -332,11 +332,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`diary_entries`
+-- Definition of table `osm`.`diary_entries`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`diary_entries`;
-CREATE TABLE  `api06_test`.`diary_entries` (
+DROP TABLE IF EXISTS `osm`.`diary_entries`;
+CREATE TABLE  `osm`.`diary_entries` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL,
   `title` varchar(191) NOT NULL,
@@ -350,7 +350,7 @@ CREATE TABLE  `api06_test`.`diary_entries` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`diary_entries`
+-- Dumping data for table `osm`.`diary_entries`
 --
 
 /*!40000 ALTER TABLE `diary_entries` DISABLE KEYS */;
@@ -360,11 +360,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`friends`
+-- Definition of table `osm`.`friends`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`friends`;
-CREATE TABLE  `api06_test`.`friends` (
+DROP TABLE IF EXISTS `osm`.`friends`;
+CREATE TABLE  `osm`.`friends` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL,
   `friend_user_id` bigint(20) NOT NULL,
@@ -374,7 +374,7 @@ CREATE TABLE  `api06_test`.`friends` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`friends`
+-- Dumping data for table `osm`.`friends`
 --
 
 /*!40000 ALTER TABLE `friends` DISABLE KEYS */;
@@ -384,11 +384,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`gps_points`
+-- Definition of table `osm`.`gps_points`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`gps_points`;
-CREATE TABLE  `api06_test`.`gps_points` (
+DROP TABLE IF EXISTS `osm`.`gps_points`;
+CREATE TABLE  `osm`.`gps_points` (
   `altitude` float default NULL,
   `trackid` int(11) NOT NULL,
   `latitude` int(11) NOT NULL,
@@ -401,7 +401,7 @@ CREATE TABLE  `api06_test`.`gps_points` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`gps_points`
+-- Dumping data for table `osm`.`gps_points`
 --
 
 /*!40000 ALTER TABLE `gps_points` DISABLE KEYS */;
@@ -411,11 +411,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`gpx_file_tags`
+-- Definition of table `osm`.`gpx_file_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`gpx_file_tags`;
-CREATE TABLE  `api06_test`.`gpx_file_tags` (
+DROP TABLE IF EXISTS `osm`.`gpx_file_tags`;
+CREATE TABLE  `osm`.`gpx_file_tags` (
   `gpx_id` bigint(64) NOT NULL default '0',
   `tag` varchar(191) NOT NULL,
   `id` bigint(20) NOT NULL auto_increment,
@@ -425,7 +425,7 @@ CREATE TABLE  `api06_test`.`gpx_file_tags` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`gpx_file_tags`
+-- Dumping data for table `osm`.`gpx_file_tags`
 --
 
 /*!40000 ALTER TABLE `gpx_file_tags` DISABLE KEYS */;
@@ -435,11 +435,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`gpx_files`
+-- Definition of table `osm`.`gpx_files`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`gpx_files`;
-CREATE TABLE  `api06_test`.`gpx_files` (
+DROP TABLE IF EXISTS `osm`.`gpx_files`;
+CREATE TABLE  `osm`.`gpx_files` (
   `id` bigint(64) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL,
   `visible` tinyint(1) NOT NULL default '1',
@@ -458,7 +458,7 @@ CREATE TABLE  `api06_test`.`gpx_files` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`gpx_files`
+-- Dumping data for table `osm`.`gpx_files`
 --
 
 /*!40000 ALTER TABLE `gpx_files` DISABLE KEYS */;
@@ -468,11 +468,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`messages`
+-- Definition of table `osm`.`messages`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`messages`;
-CREATE TABLE  `api06_test`.`messages` (
+DROP TABLE IF EXISTS `osm`.`messages`;
+CREATE TABLE  `osm`.`messages` (
   `id` bigint(20) NOT NULL auto_increment,
   `from_user_id` bigint(20) NOT NULL,
   `title` varchar(191) NOT NULL,
@@ -485,7 +485,7 @@ CREATE TABLE  `api06_test`.`messages` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`messages`
+-- Dumping data for table `osm`.`messages`
 --
 
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
@@ -495,11 +495,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`node_tags`
+-- Definition of table `osm`.`node_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`node_tags`;
-CREATE TABLE  `api06_test`.`node_tags` (
+DROP TABLE IF EXISTS `osm`.`node_tags`;
+CREATE TABLE  `osm`.`node_tags` (
   `node_id` bigint(64) NOT NULL,
   `version` bigint(20) NOT NULL,
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL default '',
@@ -509,7 +509,7 @@ CREATE TABLE  `api06_test`.`node_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`node_tags`
+-- Dumping data for table `osm`.`node_tags`
 --
 
 /*!40000 ALTER TABLE `node_tags` DISABLE KEYS */;
@@ -519,11 +519,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`nodes`
+-- Definition of table `osm`.`nodes`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`nodes`;
-CREATE TABLE  `api06_test`.`nodes` (
+DROP TABLE IF EXISTS `osm`.`nodes`;
+CREATE TABLE  `osm`.`nodes` (
   `node_id` bigint(64) NOT NULL,
   `latitude` int(11) NOT NULL,
   `longitude` int(11) NOT NULL,
@@ -540,7 +540,7 @@ CREATE TABLE  `api06_test`.`nodes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`nodes`
+-- Dumping data for table `osm`.`nodes`
 --
 
 /*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
@@ -550,11 +550,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`relation_members`
+-- Definition of table `osm`.`relation_members`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`relation_members`;
-CREATE TABLE  `api06_test`.`relation_members` (
+DROP TABLE IF EXISTS `osm`.`relation_members`;
+CREATE TABLE  `osm`.`relation_members` (
   `relation_id` bigint(64) NOT NULL default '0',
   `member_type` enum('Node','Way','Relation') NOT NULL default 'Node',
   `member_id` bigint(11) NOT NULL,
@@ -567,7 +567,7 @@ CREATE TABLE  `api06_test`.`relation_members` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`relation_members`
+-- Dumping data for table `osm`.`relation_members`
 --
 
 /*!40000 ALTER TABLE `relation_members` DISABLE KEYS */;
@@ -577,11 +577,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`relation_tags`
+-- Definition of table `osm`.`relation_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`relation_tags`;
-CREATE TABLE  `api06_test`.`relation_tags` (
+DROP TABLE IF EXISTS `osm`.`relation_tags`;
+CREATE TABLE  `osm`.`relation_tags` (
   `relation_id` bigint(64) NOT NULL default '0',
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL default '',
   `v` text NOT NULL default '',
@@ -591,7 +591,7 @@ CREATE TABLE  `api06_test`.`relation_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`relation_tags`
+-- Dumping data for table `osm`.`relation_tags`
 --
 
 /*!40000 ALTER TABLE `relation_tags` DISABLE KEYS */;
@@ -601,11 +601,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`relations`
+-- Definition of table `osm`.`relations`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`relations`;
-CREATE TABLE  `api06_test`.`relations` (
+DROP TABLE IF EXISTS `osm`.`relations`;
+CREATE TABLE  `osm`.`relations` (
   `relation_id` bigint(64) NOT NULL default '0',
   `changeset_id` bigint(20) NOT NULL,
   `timestamp` datetime NOT NULL,
@@ -618,7 +618,7 @@ CREATE TABLE  `api06_test`.`relations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`relations`
+-- Dumping data for table `osm`.`relations`
 --
 
 /*!40000 ALTER TABLE `relations` DISABLE KEYS */;
@@ -628,22 +628,22 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`schema_migrations`
+-- Definition of table `osm`.`schema_migrations`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`schema_migrations`;
-CREATE TABLE  `api06_test`.`schema_migrations` (
+DROP TABLE IF EXISTS `osm`.`schema_migrations`;
+CREATE TABLE  `osm`.`schema_migrations` (
   `version` varchar(191) NOT NULL,
   UNIQUE KEY `unique_schema_migrations` (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`schema_migrations`
+-- Dumping data for table `osm`.`schema_migrations`
 --
 
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
 LOCK TABLES `schema_migrations` WRITE;
-INSERT INTO `api06_test`.`schema_migrations` VALUES  ('1'),
+INSERT INTO `osm`.`schema_migrations` VALUES  ('1'),
  ('10'),
  ('11'),
  ('12'),
@@ -673,11 +673,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`sessions`
+-- Definition of table `osm`.`sessions`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`sessions`;
-CREATE TABLE  `api06_test`.`sessions` (
+DROP TABLE IF EXISTS `osm`.`sessions`;
+CREATE TABLE  `osm`.`sessions` (
   `id` int(11) NOT NULL auto_increment,
   `session_id` varchar(191) default NULL,
   `data` text,
@@ -688,7 +688,7 @@ CREATE TABLE  `api06_test`.`sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`sessions`
+-- Dumping data for table `osm`.`sessions`
 --
 
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
@@ -698,11 +698,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`user_preferences`
+-- Definition of table `osm`.`user_preferences`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`user_preferences`;
-CREATE TABLE  `api06_test`.`user_preferences` (
+DROP TABLE IF EXISTS `osm`.`user_preferences`;
+CREATE TABLE  `osm`.`user_preferences` (
   `user_id` bigint(20) NOT NULL,
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `v` text NOT NULL,
@@ -710,7 +710,7 @@ CREATE TABLE  `api06_test`.`user_preferences` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`user_preferences`
+-- Dumping data for table `osm`.`user_preferences`
 --
 
 /*!40000 ALTER TABLE `user_preferences` DISABLE KEYS */;
@@ -720,11 +720,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`user_tokens`
+-- Definition of table `osm`.`user_tokens`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`user_tokens`;
-CREATE TABLE  `api06_test`.`user_tokens` (
+DROP TABLE IF EXISTS `osm`.`user_tokens`;
+CREATE TABLE  `osm`.`user_tokens` (
   `id` bigint(20) NOT NULL auto_increment,
   `user_id` bigint(20) NOT NULL,
   `token` varchar(191) NOT NULL,
@@ -735,7 +735,7 @@ CREATE TABLE  `api06_test`.`user_tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`user_tokens`
+-- Dumping data for table `osm`.`user_tokens`
 --
 
 /*!40000 ALTER TABLE `user_tokens` DISABLE KEYS */;
@@ -745,11 +745,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`users`
+-- Definition of table `osm`.`users`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`users`;
-CREATE TABLE  `api06_test`.`users` (
+DROP TABLE IF EXISTS `osm`.`users`;
+CREATE TABLE  `osm`.`users` (
   `email` varchar(191) NOT NULL,
   `id` bigint(20) NOT NULL auto_increment,
   `active` int(11) NOT NULL default '0',
@@ -775,7 +775,7 @@ CREATE TABLE  `api06_test`.`users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`users`
+-- Dumping data for table `osm`.`users`
 --
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -785,11 +785,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`way_nodes`
+-- Definition of table `osm`.`way_nodes`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`way_nodes`;
-CREATE TABLE  `api06_test`.`way_nodes` (
+DROP TABLE IF EXISTS `osm`.`way_nodes`;
+CREATE TABLE  `osm`.`way_nodes` (
   `way_id` bigint(64) NOT NULL,
   `node_id` bigint(64) NOT NULL,
   `version` bigint(20) NOT NULL,
@@ -800,7 +800,7 @@ CREATE TABLE  `api06_test`.`way_nodes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`way_nodes`
+-- Dumping data for table `osm`.`way_nodes`
 --
 
 /*!40000 ALTER TABLE `way_nodes` DISABLE KEYS */;
@@ -810,11 +810,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`way_tags`
+-- Definition of table `osm`.`way_tags`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`way_tags`;
-CREATE TABLE  `api06_test`.`way_tags` (
+DROP TABLE IF EXISTS `osm`.`way_tags`;
+CREATE TABLE  `osm`.`way_tags` (
   `way_id` bigint(64) NOT NULL default '0',
   `k` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `v` text NOT NULL,
@@ -824,7 +824,7 @@ CREATE TABLE  `api06_test`.`way_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`way_tags`
+-- Dumping data for table `osm`.`way_tags`
 --
 
 /*!40000 ALTER TABLE `way_tags` DISABLE KEYS */;
@@ -834,11 +834,11 @@ UNLOCK TABLES;
 
 
 --
--- Definition of table `api06_test`.`ways`
+-- Definition of table `osm`.`ways`
 --
 
-DROP TABLE IF EXISTS `api06_test`.`ways`;
-CREATE TABLE  `api06_test`.`ways` (
+DROP TABLE IF EXISTS `osm`.`ways`;
+CREATE TABLE  `osm`.`ways` (
   `way_id` bigint(64) NOT NULL default '0',
   `changeset_id` bigint(20) NOT NULL,
   `timestamp` datetime NOT NULL,
@@ -851,7 +851,7 @@ CREATE TABLE  `api06_test`.`ways` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `api06_test`.`ways`
+-- Dumping data for table `osm`.`ways`
 --
 
 /*!40000 ALTER TABLE `ways` DISABLE KEYS */;
